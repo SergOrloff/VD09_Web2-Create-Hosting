@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center mt-4">
+    <h1 class="display-4">Кликер!</h1>
+    {% if current_user.is_authenticated %}
+        <p class="lead">Количество кликов — <span class="badge badge-primary">{{current_user.clicks }}</span></p>
+        <a href="{{ url_for('click') }}" class="btn btn-primary btn-lg">Кликни <strong>меня</strong></a>
+    {% else %}
+        <p class="lead">Пожалуйста, войдите в систему, чтобы начать играть.</p>
+        <a href="{{ url_for('login') }}" class="btn btn-secondary btn-lg">Войти в систему</a>
+        <a href="{{ url_for('register') }}" class="btn btn-outline-secondary btn-lg">Зарегистрироваться</a>
+    {% endif %}
+</div>
+<div class="text-center mt-4">
+    <h1 class="display-4">Собери звезды!</h1>
+    {% if current_user.is_authenticated %}
+        <p class="lead">Количество звезд — <span class="badge badge-warning">{{ current_user.stars }}</span></p>
+        <button id="collect-star" class="btn btn-warning btn-lg">Подобрать <strong>звезду</strong></button>
+    {% else %}
+        <p class="lead">Пожалуйста, войдите в систему, чтобы начать играть.</p>
+        <a href="{{ url_for('login') }}" class="btn btn-secondary btn-lg">Войти в систему</a>
+        <a href="{{ url_for('register') }}" class="btn btn-outline-secondary btn-lg">Зарегистрироваться</a>
+    {% endif %}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.getElementById('collect-star');
+        if (button) {
+            button.addEventListener('click', function() {
+                fetch('{{ url_for('collect_star') }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token() }}'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const badge = document.querySelector('.badge-warning');
+                        badge.textContent = data.stars;
+                    }
+                });
+            });
+        }
+    });
+</script>
+{% endblock %}

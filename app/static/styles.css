@@ -1,0 +1,92 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, lightblue, lightgreen);
+<!--        min-height: 20vh;-->
+    display: flex;
+<!--        justify-content: center;-->
+<!--        align-items: center;-->
+    margin: 0;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar {
+    background-color: transparent !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-input {
+    border: 2px solid #e74c3c;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.custom-input:focus {
+    border-color: #c0392b;
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+}
+
+.error-message {
+    margin-top: 5px;
+    font-size: 0.85em;
+    color: #e74c3c;
+    margin: 0 auto;
+}
+
+.custom-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffeb3b !important;
+}
+
+.registration-container {
+    max-width: 450px;
+    width: 100%;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

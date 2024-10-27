@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-4">
+        <h1>Кликерабельная соберизвездабельность</h1>
+        <p>Добро пожаловать в проект "Кликерабельная соберизвездабельность"! Это веб-приложение, разработанное с использованием Flask, которое позволяет пользователям регистрироваться, входить в систему и отслеживать количество кликов и звезд.</p>
+
+        <h2>Содержание</h2>
+        <ul>
+            <li><a href="#установка">Установка</a></li>
+            <li><a href="#запуск">Запуск</a></li>
+            <li><a href="#структура-проекта">Структура проекта</a></li>
+            <li><a href="#основные-компоненты">Основные компоненты</a></li>
+            <li><a href="#используемые-технологии">Используемые технологии</a></li>
+            <li><a href="#особенности">Особенности</a></li>
+            <li><a href="#контакты">Контакты</a></li>
+        </ul>
+
+        <h2 id="установка">Установка</h2>
+        <ol>
+            <li><strong>Клонирование репозитория:</strong>
+            <pre><code>git clone https://github.com/yourusername/clickable-star.git
+cd clickable-star</code></pre></li>
+            <li>Создание виртуального окружения:
+            <pre><code>python -m venv venv</code></pre></li>
+            <li>Активация виртуального окружения:
+                <ul>
+                    <li>На Windows:
+                    <pre><code>venv\Scripts\activate</code></pre></li>
+                    <li>На macOS и Linux:
+                    <pre><code>source venv/bin/activate</code></pre></li>
+                </ul>
+            </li>
+            <li>Установка зависимостей:
+            <pre><code>pip install -r requirements.txt</code></pre></li>
+        </ol>
+
+        <h2 id="запуск">Запуск</h2>
+        <ol>
+            <li>Инициализация базы данных:
+            <pre><code>python -c "from app import db; db.create_all()"</code></pre></li>
+            <li>Запуск приложения:
+            <pre><code>python main.py</code></pre></li>
+            <li>Приложение будет доступно по адресу <a href="http://localhost:5000">http://localhost:5000</a>.</li>
+        </ol>
+
+        <h2 id="структура-проекта">Структура проекта</h2>
+        <ul>
+            <li>main.py: Главный файл для запуска приложения.</li>
+            <li>app/__init__.py: Инициализация приложения, настройка баз данных и конфигураций.</li>
+            <li>app/forms.py: Формы для регистрации и входа в систему с проверкой валидности данных.</li>
+            <li>app/models.py: Определение модели пользователя и функции загрузки пользователя.</li>
+            <li>app/routes.py: Основные маршруты приложения, включая регистрацию, вход, выход, кликер и сбор звезд.</li>
+            <li>app/templates/: HTML-шаблоны.</li>
+            <li>app/static/styles.css: CSS стили.</li>
+        </ul>
+
+        <h2 id="основные-компоненты">Основные компоненты</h2>
+        <ul>
+            <li>Маршруты
+                <ul>
+                    <li>/register: Регистрация нового пользователя.</li>
+                    <li>/login: Вход пользователя в систему.</li>
+                    <li>/logout: Выход из системы.</li>
+                    <li>/click: Увеличение счетчика кликов.</li>
+                    <li>/collect_star: Сбор звезд (AJAX запрос).</li>
+                </ul>
+            </li>
+            <li>Модели
+                <ul>
+                    <li>User: Модель, представляющая пользователя, с полями для имени пользователя, email, пароля, количества кликов и собранных звезд.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2 id="используемые-технологии">Используемые технологии</h2>
+        <ul>
+            <li>Python 3</li>
+            <li>Flask</li>
+            <li>Flask-Login</li>
+	    <li>Flask-WTF</li>
+            <li>Flask-Bcrypt</li>
+            <li>SQLite</li>
+        </ul>
+
+        <h2 id="особенности">Особенности</h2>
+        <ul>
+            <li>Регистрация и аутентификация пользователей.</li>
+            <li>Хранение и отображение количества кликов и звезд каждого пользователя.</li>
+            <li>Защита от CSRF-атак с использованием Flask-WTF.</li>
+        </ul>
+
+        <h2 id="контакты">Контакты</h2>
+        <p>Если у вас возникнут вопросы или предложения, пожалуйста, свяжитесь с нами по адресу: <a href="mailto:6202818@gmail.com">6202818@gmail.com</a>.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
